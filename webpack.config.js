@@ -25,8 +25,8 @@ const plugins = [
 		},
 	}),
 	new MiniCssExtractPlugin({
-		filename: isDEv ? '[name].css' : '[name].[contenthash].css',
-		chunkFilename: isDEv ? '[id].css' : '[id].[contenthash].css',
+		filename: isDev ? '[name].css' : '[name].[contenthash].css',
+		chunkFilename: isDev ? '[id].css' : '[id].[contenthash].css',
 	}),
 ]
 
