@@ -1,5 +1,4 @@
-@use 'src/styles/variables';
-
+@use './variables';
 @mixin dashboard-section($variant: 'big') {
 	margin-top: $gap;
 	background-color: $bg-block;
@@ -8,7 +7,7 @@
 	@if $variant == small {
 		padding: 18px 26px;
 	} @else {
-		padding: 20px 25px;
+		padding: 25px 35px;
 	}
 }
 

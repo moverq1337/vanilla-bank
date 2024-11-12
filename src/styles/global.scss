@@ -1,6 +1,7 @@
 @use './variables' as *;
 @use './reset';
 @use './keyframes';
+@use './mixins';
 
 input,
 button,
@@ -35,14 +36,4 @@ a {
 	&:hover {
 		border-color: $primary;
 	}
-}
-
-input[type='number']::-webkit-outer-spin-button,
-input[type='number']::-webkit-inner-spin-button {
-	-webkit-appearance: none;
-	margin: 0;
-}
-
-input[type='number'] {
-	-moz-appearance: textfield;
 }

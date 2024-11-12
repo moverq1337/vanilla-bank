@@ -1,17 +1,18 @@
 import { Layout } from '@/components/layout/layout.component'
 import { NotFound } from '@/components/screens/not-found/not-found.component'
+
 import { ROUTES } from './routes.data'
 
 export class Router {
-	#routes
-	#currentRoute
+	#routes = ROUTES
+	#currentRoute = null
 	#layout = null
 
 	constructor() {
-		window.addEventListener('popstate', () => this.#handleRouteChange())
+		window.addEventListener('popstate', () => {
+			this.#handleRouteChange()
+		})
 
-		this.#routes = ROUTES
-		this.#currentRoute = null
 		this.#handleRouteChange()
 		this.#handleLinks()
 	}
@@ -30,6 +31,7 @@ export class Router {
 	getCurrentPath() {
 		return window.location.pathname
 	}
+
 	navigate(path) {
 		if (path !== this.getCurrentPath()) {
 			window.history.pushState({}, '', path)
@@ -55,7 +57,10 @@ export class Router {
 		const component = new this.#currentRoute.component()
 
 		if (!this.#layout) {
-			this.#layout = new Layout({ router: this, children: component.render() })
+			this.#layout = new Layout({
+				router: this,
+				children: component.render()
+			})
 			document.getElementById('app').innerHTML = this.#layout.render()
 		} else {
 			document.querySelector('main').innerHTML = component.render()

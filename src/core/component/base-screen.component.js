@@ -2,20 +2,19 @@ import { getTitle } from '@/config/seo.config'
 
 export class BaseScreen {
 	/**
-	 * Create a new BaseScreen instance
-	 * @param {Object} options - The options object for the BaseScreen instance
-	 * @param {string} options.title - The title of the page
+	 * Create a new BaseScreen instance.
+	 * @param {Object} options - The options for the BaseScreen.
+	 * @param {string} options.title - The title for the screen.
 	 */
-
 	constructor({ title }) {
 		document.title = getTitle(title)
 	}
+
 	/**
-	 * This method should return HTML-string of the component.
-	 * It will be called by the parent component and then rendered.
-	 * @returns {HTMLElement} - HTML-string of the component
+	 * Render the child component content.
+	 * @returns {HTMLElement}
 	 */
 	render() {
-		throw new Error('Method "render" must be implemented')
+		throw new Error('Render method must be implemented in the child class')
 	}
 }
